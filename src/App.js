@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Switch, Link } from 'react-rout
 import About from './components/About';
 import Home from './components/home';
 import LoginForm from './components/loginForm';
+import Notes from './components/notes';
 
 
 import RegistrationForm from './components/registrationForm';
@@ -11,14 +12,15 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/home" element={<Home/>} />
-        <Route path="/About" element={<About/>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/About" element={<About />} />
         <Route path="/Signup" element={<RegistrationForm />} />
-        <Route path='/login' element={<LoginForm/>}></Route>
+        <Route path='/login' element={<LoginForm />}></Route>
+        <Route path='/Notes' element={<Notes/>} />
       </Routes>
     </>
-  );
+  )
 }
 
 export default App;

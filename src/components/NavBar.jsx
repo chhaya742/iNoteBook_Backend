@@ -13,6 +13,9 @@ export default function () {
         navigate("/login")
     }
 
+    var logout=()=>{
+        localStorage.removeItem("loginToken")
+    }
     return (
         <div><nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
             <Link className="navbar-brand" to="/">iNote <span className="sr-only">(current)</span></Link>
@@ -21,12 +24,10 @@ export default function () {
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav mr-auto">
-                
-
                     <li className="nav-item"><Link className="nav-link" to="/Home">Home</Link></li>
                     <li className="nav-item"><Link className="nav-link" to="/About">About</Link></li>
                     {/* <li className="nav-item"><Link className="nav-link" to="/Signup">Signup</Link></li>*/}
-                    <button className="logout" onClick={handleRedirect} onClickCapture={loginForm.logout}>logout</button>
+                    <button className="logout" onClick={handleRedirect} onClickCapture={logout}>logout</button>
                 </ul>
             </div>
         </nav></div>

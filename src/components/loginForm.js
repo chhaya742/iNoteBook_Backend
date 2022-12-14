@@ -1,24 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import '../assests/css/login.css';
 import logo from '../assests/logo.png';
 import axios from 'axios';
-import { Routes, Route, useNavigate } from 'react-router-dom';
-import { useCookies } from 'react-cookie';
+import { useNavigate } from 'react-router-dom';
 
+import React from 'react'
 
 export default function () {
     const navigate = useNavigate();
-    const [cookies, setCookie, removeCookie] = useCookies(['loginToken']);
+    const [token, setToekn] = useState(['loginToken']);
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [user, setUser] = useState('');
+    
     var handleRedirect = () => {
         navigate("/Signup")
     }
 
     var handleSubmit = (e) => {
         e.preventDefault();
-        // console.log(email, password);
         var data = {
             Email: email,
             password: password
@@ -26,10 +26,12 @@ export default function () {
         axios.post('http://localhost:4000/user/login', data)
             .then((response) => {
                 setUser(response.data)
-                setCookie('loginToken', response.data.data.token, { path: '/home' });
+                // setCookie('loginToken', response.data.data.token, { path: '/home' });
+                console.log(response);
                 if (response.data.data.id) {
+                    localStorage.setItem("loginToken",response.data.data.token)
+                    setToekn(response.data.data.token);
                     navigate("/home")
-                    // console.log(cookies);
                 }else{
                     alert(response.data.messages)
                 }
@@ -39,10 +41,6 @@ export default function () {
                 console.error('There was an error!', error);
             });
     }
-    const logout = () => {  
-        removeCookie('loginToken', { path: '/home' });
-        console.log(cookies);
-    };
     return (
         <div className="iApp">
             <img src={logo} className="logo" alt="iNoteBook" />
