@@ -1,11 +1,10 @@
-
 import { Link } from "react-router-dom";
 import React, { useState } from 'react'
 import { instanceOf } from 'prop-types';
 import { withCookies, Cookies } from 'react-cookie';
-import {useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import loginForm from "./loginForm";
-
+import '../assests/css/login.css'
 
 export default function () {
     const navigate = useNavigate();
@@ -13,9 +12,10 @@ export default function () {
         navigate("/login")
     }
 
-    var logout=()=>{
+    var logout = () => {
         localStorage.removeItem("loginToken")
     }
+
     return (
         <div><nav className="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
             <Link className="navbar-brand" to="/">iNote <span className="sr-only">(current)</span></Link>
@@ -27,10 +27,9 @@ export default function () {
                     <li className="nav-item"><Link className="nav-link" to="/Home">Home</Link></li>
                     <li className="nav-item"><Link className="nav-link" to="/About">About</Link></li>
                     {/* <li className="nav-item"><Link className="nav-link" to="/Signup">Signup</Link></li>*/}
-                    <button className="logout" onClick={handleRedirect} onClickCapture={logout}>logout</button>
+                    <button className="primary" onClick={handleRedirect} onClickCapture={logout}>logout</button>
                 </ul>
             </div>
         </nav></div>
-    )
-
+    );
 }

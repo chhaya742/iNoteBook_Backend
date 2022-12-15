@@ -4,6 +4,8 @@ import About from './components/About';
 import Home from './components/home';
 import LoginForm from './components/loginForm';
 import Notes from './components/notes';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 import RegistrationForm from './components/registrationForm';
@@ -19,6 +21,8 @@ function App() {
         <Route path='/login' element={<LoginForm />}></Route>
         <Route path='/Notes' element={<Notes/>} />
       </Routes>
+      <ToastContainer position="bottom-right" autoClose={2000} pauseOnHover={false}
+      />
     </>
   )
 }
