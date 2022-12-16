@@ -1,9 +1,9 @@
 #root {
   display: flex;
-
   justify-content: center;
   align-items: center;
   margin-top: 30px;
+  background-color: aliceblue;
 
 }
 
@@ -66,7 +66,7 @@
   outline: 0;
   padding: 0 15px;
   transition: all 0.3s;
-  width: 100%;
+  width: 110%;
 }
 
 .input-group>input:focus {
@@ -80,7 +80,7 @@
 }
 
 
-button {
+/* button {
   border-radius: 5px;
   border: none;
   cursor: pointer;
@@ -92,12 +92,20 @@ button {
   transition: background 0.3s;
   padding: 7px 120px;
 
-}
+} */
 
 button.primary {
   background: #f58733;
-
-
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  outline: 0;
+  transition: background 0.3s;
+  padding: 7px 120px;
 }
 
 button.primary:hover {
@@ -109,10 +117,16 @@ button.primary:hover {
 }
 
 button.secondry {
-  margin-top: -39px;
   background: #2a1ea7;
-}
-
-.logout {
-  background-color: #310de0;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  outline: 0;
+  transition: background 0.3s;
+  padding: 7px 120px;
+  margin-top: -39px;
 }

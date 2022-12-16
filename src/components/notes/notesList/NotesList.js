@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import NavBar from '../../NavBar';
+import NavBar from '../../NavBar/NavBar';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import './notesList.css'
+import NavDropdown from '../../SearchBar/NotesSearchBar';
 
-const NotesList=()=>{
-  
-  console.log("dfsdf");
+
+const NotesList=(props)=>{
   const [listItems, setListItems] = useState()
   let user_id = localStorage.getItem("user");
   const navigate = useNavigate()
@@ -22,6 +23,8 @@ function notesHandle() {
   }
   axios.post('http://localhost:4000/user/notes', data)
     .then((response) => {
+      localStorage.getItem("searchNotes")
+      console.log( localStorage.getItem("searchNotes"));
       setListItems(response.data.data.map((element) =>
         <div className='noteList' onClick={handleRedirect}>
           <h5 className='heading'>{element.Title}</h5>
@@ -42,13 +45,12 @@ useEffect(() => {
   notesHandle();
 }, []);
 
-
   return (
     <>
-      <NavBar />
+      <NavBar search= <NavDropdown/>/>
       <div className='home'>
         {listItems}
-        <button onClick={handleRedirect}>add</button>
+        <button className='add-notes' onClick={handleRedirect}>Add note</button>
       </div>
     </>
   )

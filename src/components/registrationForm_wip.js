@@ -28,7 +28,7 @@ export default function () {
         
         axios.post('http://localhost:4000/user/create', user)
             .then((response) => {
-                console.log(response);
+                // console.log(response);
                 if (response.data.data.length > 0) {
                     localStorage.setItem("loginToken", response.data.data[1].token);
                     navigate("/home");

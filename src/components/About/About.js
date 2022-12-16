@@ -1,6 +1,6 @@
 import React from 'react'
 import './about.css'
-import NavBar from '../NavBar'
+import NavBar from '../NavBar/NavBar'
 
 function About() {
   return (

@@ -1,14 +1,15 @@
 import React from 'react'
-import './home.css'
-import NavBar from '../NavBar'
+import './home.css';
 import NotesList from '../notes/notesList/NotesList';
+import LoginForm from '../Login/LoginForm';
 
 
-export default function (props) {
-
+export default function () {
+    const user=localStorage.getItem("user")
+  
     return (
         <>
-            <NotesList />
+        {user ?<NotesList/>:<LoginForm/>}
         </>
 
     )

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router';
-import NavBar from '../../NavBar';
+import NavBar from '../../NavBar/NavBar'
 import './notes.css'
 import { toast } from 'react-toastify';
 import { notesValidat } from '../../../assests/styles/notesValidation';
@@ -27,7 +27,7 @@ export default function () {
 
     var addNote = (e) => {
         e.preventDefault();
-        console.log(notes);
+        // console.log(notes);
         const error = notesValidat(notes);
         setError(error)
         
@@ -37,7 +37,7 @@ export default function () {
 
         axios.post('http://localhost:4000/notes/create', notes)
             .then((response) => {
-                console.log(response.data);
+                // console.log(response.data);
                 if (response.data.data.length > 0) {
                     toast.success(`create successfully `);
                     navigate("/notesList")
@@ -58,12 +58,12 @@ export default function () {
                 <h3> Notes</h3>
                 <form className='form' onSubmit={addNote} >
                 <button className='list-note-btn'  onClick={redirecHandle}>notes list</button>
-                    <div className='input-group ' >
+                    <div className='notes-input-group' >
                         <label htmlFor='Title'>Title </label>
                         <input type="Title" name="Title" value={notes.Title} placeholder="write title  here" onChange={(e) => { inputHandler(e.target) }} />
                         {error.Title && <div style={{ color: "red" }}>{error.Title}</div>}
                     </div>
-                    <div className='input-group'>
+                    <div className='notes-input-group'>
                         <label htmlFor='Description'>Description </label>
                         <textarea className='Description-text' type="Description" name="Description" value={notes.Description} placeholder="write something here" onChange={(e) => { inputHandler(e.target) }} rows={5} cols={50} />
                     

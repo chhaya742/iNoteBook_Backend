@@ -105,9 +105,9 @@ export default function () {
                     <input type="Pin" name="Pin" placeholder="" value={pin} onChange={(e) => setPin(e.target.value)} />
                     {error.Pin && <div style={{color:"red"}}>{error.Pin}</div>}
                 </div>
-                <button className='primary1' >Signup</button>
+                <button className='signup-input-btn' >Signup</button>
             </form>
-            <button className='secondry1' onClick={redirect} >Login</button>
+            <button className='signup-input-btn1' onClick={redirect} >Login</button>
         </div>
     )
 };

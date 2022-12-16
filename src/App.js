@@ -15,12 +15,12 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/Signup" element={<RegistrationForm />} />
-        <Route path='/login' element={<LoginForm />}></Route>
-        <Route path='/Notes' element={<Notes/>} />
+        <Route path="/" element={<Home/>} />
+        <Route path="/home" element={<Home/>} />
+        <Route path="/About" element={<About/>} />
+        <Route path="/Signup" element={<RegistrationForm/>} />
+        <Route path='/login' element={<LoginForm/>}></Route>
+        <Route path='/Notes' element={<Notes/>}/>
         <Route path='/notesList' element={<NotesList/>}></Route>
       </Routes>
       <ToastContainer position="bottom-right" autoClose={1000} pauseOnHover={false}
