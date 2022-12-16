@@ -1,15 +1,15 @@
 // import logo from './logo.svg';
 import { BrowserRouter as Router, Routes, Route, Switch, Link } from 'react-router-dom';
-import About from './components/About';
-import Home from './components/home';
-import LoginForm from './components/loginForm';
-import Notes from './components/notes/addNotes';
-import NotesList from './components/notes/notesList';
+import About from './components/About/About';
+import Home from './components/Home/Home';
+import LoginForm from './components/Login/LoginForm';
+import Notes from './components/notes/addNotes/AddNotes';
+import NotesList from './components/notes/notesList/NotesList';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-import RegistrationForm from './components/registrationForm';
+import RegistrationForm from './components/Signup/registrationForm';
 
 function App() {
   return (

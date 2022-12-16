@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import '../assests/css/login.css';
-import logo from '../assests/logo.png';
+import './login.css';
+import logo from '../../assests/logo.png';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { loginValidation } from '../assests/styles/signupValidation';
-import {toast} from 'react-toastify';
+import { loginValidation } from '../../assests/styles/signupValidation';
+import { toast } from 'react-toastify';
 
 import React from 'react'
 
@@ -29,15 +29,18 @@ export default function () {
 
         const error = loginValidation(data);
         setError(error)
+        
+        if (error.isError) {
+            return;
+        }
         axios.post('http://localhost:4000/user/login', data)
             .then((response) => {
                 setUser(response.data)
-                // setCookie('loginToken', response.data.data.token, { path: '/home' });
-                console.log(response);
+                // console.log(response);
                 if (response.data.data.id) {
-                    localStorage.setItem("loginToken", response.data.data.token)
+                    localStorage.setItem("user", JSON.stringify({ userDetials: response.data.data }))
                     setToekn(response.data.data.token);
-                    navigate("/home")
+                    navigate("/NotesList")
                 } else {
                     // alert(response.data.messages)
                     toast.error(response.data.messages)
@@ -48,7 +51,6 @@ export default function () {
                 console.error('There was an error!', error);
             });
     }
-
 
     return (
         <div className="iApp">

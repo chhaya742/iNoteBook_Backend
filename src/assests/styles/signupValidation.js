@@ -46,7 +46,7 @@ export const signupValidChecker=(userInput)=>{
         error.password="Enter valid password"
         isError=true;
     }
-    if(!Phone.match(phoneRegExp)){
+    if(!Phone){
         error.Phone="Enter valid phone"
         isError=true;
     }

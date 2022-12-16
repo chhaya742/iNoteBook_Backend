@@ -3,17 +3,15 @@ import React, { useState } from 'react'
 import { instanceOf } from 'prop-types';
 import { withCookies, Cookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
-import loginForm from "./loginForm";
-import '../assests/css/login.css'
+
+import { toast } from "react-toastify";
 
 export default function () {
     const navigate = useNavigate();
     var handleRedirect = () => {
+        localStorage.removeItem("user")
+        toast.success("logout Successfully")
         navigate("/login")
-    }
-
-    var logout = () => {
-        localStorage.removeItem("loginToken")
     }
 
     return (
@@ -27,9 +25,11 @@ export default function () {
                     <li className="nav-item"><Link className="nav-link" to="/Home">Home</Link></li>
                     <li className="nav-item"><Link className="nav-link" to="/About">About</Link></li>
                     {/* <li className="nav-item"><Link className="nav-link" to="/Signup">Signup</Link></li>*/}
-                    <button className="primary" onClick={handleRedirect} onClickCapture={logout}>logout</button>
+                    <div style={{display:"flex",justifyContent:"flex-end"}}>
+                    <button style={{backgroundColor:"white",color:"black",marginRight:"35px"}} onClick={handleRedirect}>logout</button>
+                    </div>
                 </ul>
-            </div>
+            </div>1
         </nav></div>
     );
 }
