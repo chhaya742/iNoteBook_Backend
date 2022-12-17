@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 import RegistrationForm from './components/Signup/registrationForm';
+import ReactTable from './components/ReactTable/ReactTable';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/Signup" element={<RegistrationForm/>} />
         <Route path='/login' element={<LoginForm/>}></Route>
         <Route path='/Notes' element={<Notes/>}/>
+        <Route path='/table' element={<ReactTable/>}/>
         <Route path='/notesList' element={<NotesList/>}></Route>
       </Routes>
       <ToastContainer position="bottom-right" autoClose={1000} pauseOnHover={false}

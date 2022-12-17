@@ -8,7 +8,7 @@ import NavDropdown from '../../SearchBar/NotesSearchBar';
 
 
 const NotesList=(props)=>{
-  const [listItems, setListItems] = useState()
+  const [listItems, setListItems] = useState([])
   let user_id = localStorage.getItem("user");
   const navigate = useNavigate()
   const handleRedirect = () => {
@@ -24,15 +24,16 @@ function notesHandle() {
   axios.post('http://localhost:4000/user/notes', data)
     .then((response) => {
       localStorage.getItem("searchNotes")
-      console.log( localStorage.getItem("searchNotes"));
-      setListItems(response.data.data.map((element) =>
-        <div className='noteList' onClick={handleRedirect}>
-          <h5 className='heading'>{element.Title}</h5>
-          <ul>
-            <li value={element.id}>{element.Description}</li>
-          </ul>
-        </div>
-      ))
+      // console.log( localStorage.getItem("searchNotes"));
+      setListItems(response.data.data)
+      // .map((element) =>
+      //   <div className='noteList' onClick={handleRedirect}>
+      //     <h5 className='heading'>{element.Title}</h5>
+      //     <ul>
+      //       <li value={element.id}>{element.Description}</li>
+      //     </ul>
+      //   </div>
+      // ))
 
     })
     .catch((error) => {
@@ -49,7 +50,14 @@ useEffect(() => {
     <>
       <NavBar search= <NavDropdown/>/>
       <div className='home'>
-        {listItems}
+        {listItems.map((element) =>
+        <div className='noteList' onClick={handleRedirect}>
+          <h5 className='heading'>{element.Title}</h5>
+          <ul>
+            <li value={element.id}>{element.Description}</li>
+          </ul>
+        </div>
+      )}
         <button className='add-notes' onClick={handleRedirect}>Add note</button>
       </div>
     </>

@@ -34,10 +34,10 @@ export default function () {
        if( error.isError){
         return;
        }
-
+console.log(notes);
         axios.post('http://localhost:4000/notes/create', notes)
             .then((response) => {
-                // console.log(response.data);
+                console.log(response.data);
                 if (response.data.data.length > 0) {
                     toast.success(`create successfully `);
                     navigate("/notesList")
