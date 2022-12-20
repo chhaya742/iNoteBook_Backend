@@ -1,5 +1,5 @@
 // import logo from './logo.svg';
-import { BrowserRouter as Router, Routes, Route, Switch, Link } from 'react-router-dom';
+import {  Routes, Route } from 'react-router-dom';
 import About from './components/About/About';
 import Home from './components/Home/Home';
 import LoginForm from './components/Login/LoginForm';
@@ -11,6 +11,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import RegistrationForm from './components/Signup/registrationForm';
 import ReactTable from './components/ReactTable/ReactTable';
+import GetData from './components/GetData/GetData';
+import GetPost from './components/GetData/GetPost';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route path='/login' element={<LoginForm/>}></Route>
         <Route path='/Notes' element={<Notes/>}/>
         <Route path='/table' element={<ReactTable/>}/>
+        <Route path='/get' element={<GetData/>}/>
+        <Route path='/getPost' element={<GetPost/>}/>
         <Route path='/notesList' element={<NotesList/>}></Route>
       </Routes>
       <ToastContainer position="bottom-right" autoClose={1000} pauseOnHover={false}
