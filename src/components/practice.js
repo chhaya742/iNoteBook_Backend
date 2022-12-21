@@ -2,9 +2,6 @@ import { useState } from "react";
 
 export default function () {
 
-
-    // console.log(value);
-
     function formatName(user) {
         return user.firstName + ' ' + user.lastName;
     }

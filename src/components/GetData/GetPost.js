@@ -1,8 +1,7 @@
 import { useData } from "../DataContext/DataContext";
 
 const GetPost = () => {
-    const { post } = useData();
-    console.log(post);
+    const { post,createPost } = useData();
     return (
         <div>
             {post.map((items)=><div key={items.title}>

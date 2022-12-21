@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { React, useState } from 'react';
+import React from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import './navBar.css'
@@ -21,7 +21,6 @@ export default function (props) {
         navigate("/login")
     }
     const user = localStorage.getItem("user")
-    // console.log(JSON.parse(user).userDetials.Name);
 
     return (
         <div>

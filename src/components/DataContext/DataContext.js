@@ -6,6 +6,7 @@ const dataContext = createContext();
 const DataProvider = ({ children }) => {
     const [data,setData]=useState([]);
     const [post, setPost] = useState([]);
+    const [postDetails,setPostDetails]=useState()
 
     const getPost = async () => {
         try {
@@ -20,8 +21,8 @@ const DataProvider = ({ children }) => {
 
     const createPost = async (Email,password) => {
         try {
-            const result = await axios.get("https://jsonplaceholder.typicode.com/posts",{Email,password});
-            setPost(result.data)
+            const result = await axios.get("http://localhost:4000/user/login",{Email,password});
+            setPostDetails(result.data)
 
         } catch (error) {
             console.log(error);
@@ -44,10 +45,11 @@ const DataProvider = ({ children }) => {
 useEffect(()=>{
     getPost()
     getData()
+    createPost()
 },[])
 
     return (
-        <dataContext.Provider value={{data,post,createPost}}>
+        <dataContext.Provider value={{data,post,postDetails,createPost}}>
             {children}
         </dataContext.Provider>
     )

@@ -22,13 +22,12 @@ export default function () {
 
     var handleSubmit = (e) => {
         e.preventDefault();
-        // console.log(user);
+
         const error = signupValidChecker(user);
         setError(error);
         
         axios.post('http://localhost:4000/user/create', user)
             .then((response) => {
-                // console.log(response);
                 if (response.data.data.length > 0) {
                     localStorage.setItem("loginToken", response.data.data[1].token);
                     navigate("/home");
@@ -41,14 +40,6 @@ export default function () {
                 console.log(error);
             });
     };
-
-    // useEffect(() => {
-    //     if (!error.isError) {
-    //         console.log(user);
-    //         handleSubmit(user)
-    //     }
-    // }, [error]);
-
 
     const inputHandler = (e) => {
         const { name, value } = e;

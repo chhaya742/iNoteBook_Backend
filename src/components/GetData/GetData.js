@@ -1,7 +1,6 @@
 import { useData } from "../DataContext/DataContext";
 const GetData=()=>{
     const {data}=useData();
-    // console.log(data);
 
 return(
     <div>
