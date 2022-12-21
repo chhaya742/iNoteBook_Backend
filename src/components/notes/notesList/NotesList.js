@@ -7,9 +7,9 @@ import { useAuth } from '../../Context/AuthContext';
 
 
 const NotesList = (props) => {
-  let user_id = localStorage.getItem("user");   
-  const { listItems, notesList,QueryString } = useAuth();
-  console.log("queryString",QueryString);
+  let user_id = localStorage.getItem("user");
+  const { listItems, notesList, QueryString } = useAuth();
+  console.log("queryString", QueryString);
 
   const navigate = useNavigate()
   const handleRedirect = () => {
@@ -19,7 +19,7 @@ const NotesList = (props) => {
     user_id: JSON.parse(user_id).userDetials.id,
     page: "",
     limit: "",
-    query_string:QueryString
+    query_string: QueryString
   }
   useEffect(() => {
     notesList(data);
@@ -27,15 +27,19 @@ const NotesList = (props) => {
 
   return (
     <>
-      <NavBar search=<NavDropdown/>/>
+      <NavBar search=<NavDropdown /> />
       <div className='home'>
-        {listItems.map((element) =>
-          <div  key={element.Title} className='noteList' onClick={handleRedirect} >
-            <h5 className='heading'>{element.Title}</h5>
-            <ul>
-              <li value={element.id}>{element.Description}</li>
-            </ul>
-          </div>
+        {listItems.map((element) => {
+            return (
+              <div key={element.Title} className='noteList' onClick={handleRedirect} >
+                <h5 className='heading'>{element.Title}</h5>
+                <ul>
+                  <li value={element.id}>{element.Description}</li>
+                </ul>
+              </div>
+            )
+          
+        }
         )}
         <button className='add-notes' onClick={handleRedirect}>Add note</button>
       </div>

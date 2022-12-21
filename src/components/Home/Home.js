@@ -1,6 +1,6 @@
 import React from 'react'
 import './home.css';
-import NotesList from '../Notes/notesList/NotesList';
+import NotesList from '../notes/notesList/NotesList';
 import LoginForm from '../Login/LoginForm';
 
 
