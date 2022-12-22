@@ -62,6 +62,7 @@ export default function () {
                         <input type="file" name="image" onChange={handleFileChange} />
                     </div>
                     <button className='create-note-btn' onClick={clickHandler} >create note</button>
+                   
                 </div>
 
             </div>

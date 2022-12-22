@@ -9,7 +9,7 @@ export default function NavDropdown() {
   const {setQueryString} = useAuth();
 const clickHandler=(e)=>{
   e.preventDefault();
-  console.log("dfsd");
+  // console.log("dfsd");
 }
   return (
     <div>

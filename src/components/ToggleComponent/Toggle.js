@@ -14,6 +14,7 @@ return(
           valuesdiffer from car to car. All cars have the same methods, but the methods are 
           performed at different times.</p>
           <button onClick={()=>setShowText(false)}>hide text</button>
+          <button className="btn-close btn-close-white" aria-label="Close"></button>
        </div>
 }
     </div>

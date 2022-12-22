@@ -6,7 +6,8 @@ import './navBar.css'
 import { toast } from "react-toastify";
 
 import { AiOutlineBars } from "react-icons/ai";
-import { FiBell } from "react-icons/fi";
+import { IoPersonAdd} from "react-icons/io5";
+import {FiBell} from "react-icons/fi";
 import mono from '../../assests/image.png';
 
 
@@ -35,17 +36,19 @@ export default function (props) {
                     <ul className="navbar-nav mr-auto" style={{ fontSize: "20px" }}>
                         <li className="nav-item"><Link className="nav-link" to="/Home">Home</Link></li>
                         <li className="nav-item"><Link className="nav-link" to="/About">About</Link></li>
-                        {/* <li className="nav-item"><Link className="nav-link" to="/Signup">Signup</Link></li>*/}
+                    
                         <div className="notification-area"> <li className="nav-item"><Link className="nav-link" to="/About"><FiBell /></Link></li></div>
                         <div className="user-profile-dropdown">
                             <NavDropdown title=<AiOutlineBars /> id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1"> Signed in as <Link>{JSON.parse(user).userDetials.Name}</Link></NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.2">Another action
-                                </NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.4"> Separated link </NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.1"> Signed in as <Link style={{color:"black"}}>{JSON.parse(user).userDetials.Name}</Link></NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item  ><button className="logout" onClick={handleRedirect}> logout</button></NavDropdown.Item>
+                                <NavDropdown.Item ><Link to="/login" style={{color:"black"}} >  <IoPersonAdd/> Add another account</Link>
+                                </NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="#action/3.3">Setting</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.4">Help</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item onClick={handleRedirect} >logout</NavDropdown.Item>
                             </NavDropdown></div>
 
 

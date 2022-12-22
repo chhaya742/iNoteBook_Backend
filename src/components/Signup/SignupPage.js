@@ -9,7 +9,7 @@ import { useAuth } from '../Context/AuthContext';
 
 
 const Signup = () => {
-    console.log("**********");
+    // console.log("**********");
     const navigate = useNavigate();
     const { signupPage } = useAuth();
     const [error, setError] = useState({ isError: true })

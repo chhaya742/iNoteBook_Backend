@@ -12,7 +12,7 @@ const Login = () => {
     const [loginDetail, setLoginDetail] = useState({Email: "",password: "",});
 
     var handleRedirect = () => {
-        navigate("/Signup")
+        navigate("/signup")
     }
 
     useEffect(() => {
