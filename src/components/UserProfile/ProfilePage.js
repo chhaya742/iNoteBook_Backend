@@ -1,7 +1,8 @@
-import React from 'react';
+import React ,{useState}from 'react';
 import { ImSphere } from "react-icons/im";
 import { AiOutlineGithub } from "react-icons/ai";
 import profileImg from '../../assests/profile.png'
+import { concat } from "lodash";
 import { TiSocialTwitter, TiSocialFacebook, TiSocialInstagram } from "react-icons/ti";
 // import './profilePage.css'
 import {
@@ -23,15 +24,31 @@ import {
 } from 'mdb-react-ui-kit';
 
 import NavBar from '../NavBar/NavBar';
+import { useNavigate } from 'react-router';
+import SaveSpinner from './Spinner';
 
 export default function ProfilePage() {
+  const navigate=useNavigate();
   let user = localStorage.getItem("user");
-  console.log(user);
+  const [loading,setLoading]=useState(false);
+  const handleBackRedirect=()=>{
+    navigate("/notes-list")
+  }
+const handleSave=()=>{
+  // setLoading(true)
+
+    navigate("/user/update-profile")
+    // setLoading(false)
+    // {loading ? <SaveSpinner /> : ''}
+
+ 
+}
+  // console.log(user);
   return (
     <div style={{ paddingTop: "3rem", paddingBottom: "3rem" }}>
-      <section style={{ backgroundColor: '#eee' }}>
+      <section style={{ backgroundColor: '#eee' }}  >
         <MDBContainer className="py-5" >
-          <NavBar />
+        
           <MDBRow >
             <MDBCol lg="4">
               <MDBCard className="mb-4">
@@ -101,7 +118,7 @@ export default function ProfilePage() {
                       <MDBCardText>Full Name</MDBCardText>
                     </MDBCol>
                     <MDBCol sm="9">
-                      <MDBCardText className="text-muted">{JSON.parse(user).userDetials.Name}</MDBCardText>
+                      <MDBCardText className="text-muted">{concat(JSON.parse(user).userDetials.FirstName,' ',JSON.parse(user).userDetials.LastName)}</MDBCardText>
                     </MDBCol>
                   </MDBRow>
                   <hr />
@@ -203,17 +220,25 @@ export default function ProfilePage() {
           </MDBRow>
           <button style={{
             float: "right",
-             borderRadius: "5px",
+            borderRadius: "5px",
             border: "none",
             cursor: "pointer",
             fontFamily: " Open Sans, sansSerif",
-            backgroundColor:"black",
-            color:"white"
-          }}> save</button>
+            backgroundColor: "white",
+            color: "black",  marginTop: "30px"
+          }} onClick={handleSave}  >   update</button>
+          <button style={{
+            borderRadius: "5px",
+            border: "none",
+            cursor: "pointer",
+            fontFamily: " Open Sans, sansSerif",
+            backgroundColor: "black",
+            color: "white",  marginTop: "30px"
+          }} onClick={handleBackRedirect}> back</button>
+          
         </MDBContainer>
-
+      
       </section>
     </div>
-
   );
 }

@@ -18,6 +18,7 @@ import UpdateNotes from './components/Notes/UpdateNotes';
 import UpdateUser from './components/UpdateUser/UpdateUser';
 import ProfilePage from './components/UserProfile/ProfilePage';
 import HomePage from './components/Home/Home';
+import UpdateProfile from './components/UpdateUser/UpdateProfile';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path='/getPost' element={<GetPost/>}/>
         <Route path='/user-profile' element={<ProfilePage/>}/>
         <Route path='/user/update-profile' element={<UpdateUser/>}/>
+        <Route path='/update-profile' element={<UpdateProfile/>}/>
         <Route path='/notes/update-note' element={<UpdateNotes/>}/>
         <Route path='/notes-list' element={<NotesList queryString=""/>}></Route>
       </Routes>

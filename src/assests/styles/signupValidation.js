@@ -27,12 +27,16 @@ export const loginValidation = (userInput) => {
 
 export const signupValidChecker = (userInput) => {
 
-    const { Name, Age, Email, password, Phone, Gender, Pin,Address } = userInput
+    const { FirstName,LastName ,Age, Email, password, Phone, Gender, Pin,Address } = userInput
 
     const error = {};
     let isError = false;
-    if (!Name) {
-        error.Name = "Name is Required";
+    if (!FirstName) {
+        error.FirstName = "FirstName is Required";
+        isError = true;
+    }
+    if (!LastName) {
+        error.LastName = "LastName is Required";
         isError = true;
     }
 

@@ -13,7 +13,7 @@ const Signup = () => {
     const navigate = useNavigate();
     const { signupPage } = useAuth();
     const [error, setError] = useState({ isError: true })
-    const [userDetail, setUserDetail] = useState({ Name: "", Email: "", password: "", Age: "", Phone: "", Gender: "", Pin: "" ,Address:""});
+    const [userDetail, setUserDetail] = useState({ FirstName: "", LastName: "", Email: "", password: "", Age: "", Phone: "", Gender: "", Pin: "", Address: "" });
 
     var redirect = () => {
         navigate("/login")
@@ -36,58 +36,97 @@ const Signup = () => {
         setError(error)
     };
 
-
     return (
+
+
         <div className="registration">
             <img src={logo} className="logo" alt="iNoteBook" />
 
-            <div className='form'>
-                <div className='input-group'>
-                    <label htmlFor='Name'>Name </label>
-                    <input type="Name" name="Name" placeholder="username" value={userDetail.Name} onChange={(e) => inputHandler(e.target)} />
-                    {error.Name && <div style={{ color: "red" }}>{error.Name}</div>}
-                </div>
-                <div className='input-group'>
-                    <label htmlFor='Email'>Email </label>
-                    <input type="Email" name="Email" placeholder="nome@email.com.br" value={userDetail.Email} onChange={(e) => inputHandler(e.target)} />
-                    {error.Email && <div style={{ color: "red" }}>{error.Email}</div>}
-                </div>
-                <div className='input-group'>
-                    <label htmlFor='password'>Password </label>
-                    <input type="password" name="password" placeholder="Chhaya@123" value={userDetail.password} onChange={(e) => inputHandler(e.target)} />
-                    {error.password && <div style={{ color: "red" }}>{error.password}</div>}
-                </div>
-                <div className='input-group'>
-                    <label htmlFor='Age'>Age </label>
-                    <input type="Age" name="Age" placeholder="" value={userDetail.Age} onChange={(e) => inputHandler(e.target)} />
-                    {error.Age && <div style={{ color: "red" }}>{error.Age}</div>}
-                </div>
-                <div className='input-group'>
-                    <label htmlFor='Phone'>Phone </label>
-                    <input type="Phone" name="Phone" placeholder="" value={userDetail.Phone} onChange={(e) => inputHandler(e.target)} />
-                    {error.Phone && <div style={{ color: "red" }}>{error.Phone}</div>}
-                </div>
-                <div className='input-group'>
-                    <label htmlFor='Gender'>Gender </label>
-                    <input type="Gender" name="Gender" placeholder="" value={userDetail.Gender} onChange={(e) => inputHandler(e.target)} />
-                    {error.Gender && <div style={{ color: "red" }}>{error.Gender}</div>}
-                </div>
-                <div className='input-group'>
-                    <label htmlFor='Pin'>Pin </label>
-                    <input type="Pin" name="Pin" placeholder="" value={userDetail.Pin} onChange={(e) => inputHandler(e.target)} />
-                    {error.Pin && <div style={{ color: "red" }}>{error.Pin}</div>}
-                </div>
-                <div className='input-group'>
-                    <label htmlFor='Address'>Address </label>
-                    <input type="Address" name="Address" placeholder="" value={userDetail.Address} onChange={(e) => inputHandler(e.target)} />
-                    {error.Address && <div style={{ color: "red" }}>{error.Address}</div>}
-                </div>
-                <button className='signup-input-btn' onClick={clickHandler}>Signup</button>
-            </div>
 
-            <button className='signup-input-btn1' onClick={redirect} >Login</button>
-        </div>
-    )
+            <div className='form'>
+
+                <div className='row'>
+                    <div className='col-md-6 mb-4'>
+                        <label htmlFor='FirstName'>FirstName
+                            <input className='form-control select-input placeholder-active active' type="FirstName" name="FirstName" placeholder="FirstName" value={userDetail.FirstName} onChange={(e) => inputHandler(e.target)} />
+                            {error.FirstName && <div style={{ color: "red" }}>{error.FirstName}</div>}
+                        </label>
+
+                    </div>
+                    <div className='col-md-6 mb-4'>
+                        <label htmlFor='LastName'>LastName
+                            <input className='form-control select-input placeholder-active active' type="LastName" name="LastName" placeholder="LastName" value={userDetail.LastName} onChange={(e) => inputHandler(e.target)} />
+                            {error.LastName && <div style={{ color: "red" }}>{error.LastName}</div>}
+                        </label>
+
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-md-6 mb-4'>
+                        <label htmlFor='Email'>Email
+                            <input className='form-control select-input placeholder-active active' type="Email" name="Email" placeholder="nome@email.com.br" value={userDetail.Email} onChange={(e) => inputHandler(e.target)} />
+                            {error.Email && <div style={{ color: "red" }}>{error.Email}</div>}
+                        </label>
+                    </div>
+                    <div className='col-md-6 mb-4'>
+                        <label htmlFor='password'>Password
+                            <input className='form-control select-input placeholder-active active' type="password" name="password" placeholder="Chhaya@123" value={userDetail.password} onChange={(e) => inputHandler(e.target)} />
+                            {error.password && <div style={{ color: "red" }}>{error.password}</div>}
+                        </label>
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-md-6 mb-4'>
+                        <label htmlFor='Age'>Age
+                            <input className='form-control select-input placeholder-active active' type="Age" name="Age" placeholder="" value={userDetail.Age} onChange={(e) => inputHandler(e.target)} />
+                            {error.Age && <div style={{ color: "red" }}>{error.Age}</div>}
+                        </label>
+                    </div>
+                    <div className='col-md-6 mb-4'>
+                        <label htmlFor='Phone'>Phone
+                            <input className='form-control select-input placeholder-active active' type="Phone" name="Phone" placeholder="" value={userDetail.Phone} onChange={(e) => inputHandler(e.target)} />
+                            {error.Phone && <div style={{ color: "red" }}>{error.Phone}</div>}
+                        </label>
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className="col-md-6 mb-4">
+                    <label htmlFor='Pin'>Gender
+                    <input className='form-control select-input placeholder-active active' type="Gender" name="Gender" placeholder="" value={userDetail.Gender} onChange={(e) => inputHandler(e.target)} />
+                    {error.Gender && <div style={{ color: "red" }}>{error.Gender}</div>}
+                </label>
+
+                    </div>
+                    <div className='col-md-6 mb-4'>
+                        <label htmlFor='Pin'>Pin
+                            <input className='form-control select-input placeholder-active active' type="Pin" name="Pin" placeholder="" value={userDetail.Pin} onChange={(e) => inputHandler(e.target)} />
+                            {error.Pin && <div style={{ color: "red" }}>{error.Pin}</div>}
+                        </label>
+                    </div>
+                </div>
+                <div className='row'>
+                    <div className='col-md-6 mb-4'>
+                        <div className='form-outline'>
+                            <label htmlFor='Address'>Address
+                                <input className='form-control select-input placeholder-active active' type="Address" name="Address" placeholder="" value={userDetail.Address} onChange={(e) => inputHandler(e.target)} />
+                                {error.Address && <div style={{ color: "red" }}>{error.Address}</div>}
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+                <button className='btn btn-success btn-lg mb-1' onClick={clickHandler}>Signup</button>
+                <button className='btn btn-primary btn-lg mb-1' style={{float:"right"}} onClick={redirect} >Login</button>
+            
+                </div>
+           
+        
+            </div>
+            )
 };
 
 export default Signup;
+
+
+
+
