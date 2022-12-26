@@ -13,7 +13,7 @@ const Signup = () => {
     const navigate = useNavigate();
     const { signupPage } = useAuth();
     const [error, setError] = useState({ isError: true })
-    const [userDetail, setUserDetail] = useState({ Name: "", Email: "", password: "", Age: "", Phone: "", Gender: "", Pin: "" });
+    const [userDetail, setUserDetail] = useState({ Name: "", Email: "", password: "", Age: "", Phone: "", Gender: "", Pin: "" ,Address:""});
 
     var redirect = () => {
         navigate("/login")
@@ -76,6 +76,11 @@ const Signup = () => {
                     <label htmlFor='Pin'>Pin </label>
                     <input type="Pin" name="Pin" placeholder="" value={userDetail.Pin} onChange={(e) => inputHandler(e.target)} />
                     {error.Pin && <div style={{ color: "red" }}>{error.Pin}</div>}
+                </div>
+                <div className='input-group'>
+                    <label htmlFor='Address'>Address </label>
+                    <input type="Address" name="Address" placeholder="" value={userDetail.Address} onChange={(e) => inputHandler(e.target)} />
+                    {error.Address && <div style={{ color: "red" }}>{error.Address}</div>}
                 </div>
                 <button className='signup-input-btn' onClick={clickHandler}>Signup</button>
             </div>

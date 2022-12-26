@@ -27,7 +27,7 @@ export const loginValidation = (userInput) => {
 
 export const signupValidChecker = (userInput) => {
 
-    const { Name, Age, Email, password, Phone, Gender, Pin } = userInput
+    const { Name, Age, Email, password, Phone, Gender, Pin,Address } = userInput
 
     const error = {};
     let isError = false;
@@ -63,6 +63,11 @@ export const signupValidChecker = (userInput) => {
     }
     if (!Pin) {
         error.Pin = "Enter valid pin";
+        isError = true;
+    }
+
+    if (!Address) {
+        error.Address = "Address is required";
         isError = true;
     }
     error.isError = isError;

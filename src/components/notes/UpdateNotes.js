@@ -1,6 +1,6 @@
 import { useState,useEffect} from 'react';
 import { useNavigate } from 'react-router';
-import logo from '../../assests/logo.png';
+
 import { notesValidat } from '../../assests/styles/notesValidation';
 import './addNotes/notes.css'
 import NavBar from '../NavBar/NavBar'

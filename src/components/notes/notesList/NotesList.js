@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import NavBar from '../../NavBar/NavBar';
 import { useNavigate } from 'react-router-dom';
 import './notesList.css'
 import NavDropdown from '../../SearchBar/NotesSearchBar';
 import { useAuth } from '../../Context/AuthContext';
-import { FaTrash, FaTimes } from "react-icons/fa";
-import UpdateNotes from '../UpdateNotes';
+import {  FaTimes } from "react-icons/fa";
 
 const NotesList = () => {
   let user_id = localStorage.getItem("user");

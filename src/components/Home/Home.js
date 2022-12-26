@@ -4,14 +4,13 @@ import NotesList from '../Notes/notesList/NotesList';
 import LoginForm from '../Login/LoginForm';
 
 
-export default function () {
+ const HomePage=()=> {
     const user=localStorage.getItem("user")
     // console.log(user);
-  
-    return (
-        <>
+    return(
+        <div>
         {user ?<NotesList queryString=""/>:<LoginForm/>}
-        </>
-
+        </div>
     )
 }
+export default HomePage;

@@ -13,7 +13,7 @@ import mono from '../../assests/image.png';
 
 import { NavDropdown } from 'react-bootstrap'
 
-export default function (props) {
+const NavBar=(props)=> {
    
     const navigate = useNavigate();
     var handleRedirect = () => {
@@ -40,12 +40,12 @@ export default function (props) {
                         <div className="notification-area"> <li className="nav-item"><Link className="nav-link" to="/About"><FiBell /></Link></li></div>
                         <div className="user-profile-dropdown">
                             <NavDropdown title=<AiOutlineBars /> id="collasible-nav-dropdown">
-                                <NavDropdown.Item href="#action/3.1"> Signed in as <Link style={{color:"black"}}>{JSON.parse(user).userDetials.Name}</Link></NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.1"> Signed in as <Link style={{color:"black"}} to="/user-profile" >{JSON.parse(user).userDetials.Name}</Link></NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item ><Link to="/login" style={{color:"black"}} >  <IoPersonAdd/> Add another account</Link>
                                 </NavDropdown.Item>
                                 <NavDropdown.Divider />
-                                <NavDropdown.Item href="#action/3.3">Setting</NavDropdown.Item>
+                                <NavDropdown.Item href="#Setting">Setting</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.4">Help</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item onClick={handleRedirect} >logout</NavDropdown.Item>
@@ -61,3 +61,4 @@ export default function (props) {
         </div>
     );
 }
+export default NavBar;

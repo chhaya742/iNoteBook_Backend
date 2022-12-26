@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 
@@ -39,9 +39,10 @@ const AuthProvider = ({ children }) => {
             const response = await axios.post("http://localhost:4000/user/create", data);
             if (response.data.status) {
                 setUser(response.data)
+                console.log( response.data.data);
                 localStorage.setItem("authToken", response.data.data.token);
                 localStorage.setItem("user", JSON.stringify({ userDetials: response.data.data }));
-                navigate("/NotesList")
+                navigate("/notes-list")
             } else {
                 toast.error(response.data.messages)
             }
