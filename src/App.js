@@ -19,6 +19,7 @@ import UpdateUser from './components/UpdateUser/UpdateUser';
 import ProfilePage from './components/UserProfile/ProfilePage';
 import HomePage from './components/Home/Home';
 import UpdateProfile from './components/UpdateUser/UpdateProfile';
+import UploadImg from './components/UpdateUser/UploadImg';
 
 function App() {
   return (
@@ -35,8 +36,9 @@ function App() {
         <Route path='/get' element={<GetData/>}/>
         <Route path='/getPost' element={<GetPost/>}/>
         <Route path='/user-profile' element={<ProfilePage/>}/>
-        <Route path='/user/update-profile' element={<UpdateUser/>}/>
-        <Route path='/update-profile' element={<UpdateProfile/>}/>
+        <Route path='/user/update-user' element={<UpdateUser/>}/>
+        <Route path='/user/update-profile' element={<UpdateProfile/>}/>
+        <Route path='/upload-image' element={<UploadImg/>}/>
         <Route path='/notes/update-note' element={<UpdateNotes/>}/>
         <Route path='/notes-list' element={<NotesList queryString=""/>}></Route>
       </Routes>

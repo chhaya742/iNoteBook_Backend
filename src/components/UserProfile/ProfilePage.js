@@ -47,7 +47,7 @@ const handleSave=()=>{
   return (
     <div style={{ paddingTop: "3rem", paddingBottom: "3rem" }}>
       <section style={{ backgroundColor: '#eee' }}  >
-        <MDBContainer className="py-5" >
+        <MDBContainer className="py-5" style={{ width: "905px" }}>
         
           <MDBRow >
             <MDBCol lg="4">
