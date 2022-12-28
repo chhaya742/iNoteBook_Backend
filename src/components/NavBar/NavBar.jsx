@@ -19,6 +19,7 @@ const NavBar=(props)=> {
     const navigate = useNavigate();
     var handleRedirect = () => {
         localStorage.removeItem("user")
+        localStorage.removeItem("authToken")
         toast.success("logout Successfully")
         navigate("/login")
     }

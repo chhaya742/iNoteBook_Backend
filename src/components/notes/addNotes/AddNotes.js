@@ -8,6 +8,7 @@ import { useAuth } from '../../Context/AuthContext';
 
 export default function () {
     let user_id = localStorage.getItem("user")
+    // console.log(user_id);
     const [file, setFile] = useState();
     const [error, setError] = useState({ isError: true })
     const navigate = useNavigate()

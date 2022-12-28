@@ -23,7 +23,9 @@ const AuthProvider = ({ children }) => {
         try {
             const response = await axios.post("http://localhost:4000/user/login", data);
             if (response.data.status) {
+                console.log(response.data.data);
                 setLogin(response.data.data)
+                // console.log(response.data.data.token);
                 localStorage.setItem("authToken", response.data.data.token);
                 localStorage.setItem("user", JSON.stringify({ userDetials: response.data.data }));
                 navigate("/notes-list");
@@ -40,10 +42,12 @@ const AuthProvider = ({ children }) => {
             const response = await axios.post("http://localhost:4000/user/create", data);
             if (response.data.status) {
                 setUser(response.data)
+                toast.success(response.data.messages)
                 // console.log( response.data.data);
                 localStorage.setItem("authToken", response.data.data.token);
                 localStorage.setItem("user", JSON.stringify({ userDetials: response.data.data }));
                 navigate("/notes-list")
+
             } else {
                 toast.error(response.data.messages)
             }
