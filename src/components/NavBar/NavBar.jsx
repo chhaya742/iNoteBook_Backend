@@ -13,6 +13,9 @@ import mono from '../../assests/image.png';
 
 import { NavDropdown } from 'react-bootstrap'
 import { concat } from "lodash";
+import Bar from "./Bar";
+import SideBar from "./SideBar";
+
 
 const NavBar = (props) => {
 
@@ -38,7 +41,7 @@ const NavBar = (props) => {
                     <ul className="navbar-nav mr-auto" style={{ fontSize: "20px" }}>
                         <li className="nav-item"><Link className="nav-link" to="/Home">Home</Link></li>
                         <li className="nav-item"><Link className="nav-link" to="/About">About</Link></li>
-
+                        <li className="nav-item"><Link className="nav-link" to="/">  <FaIcons.FaBars onClick={showSidebar} /></Link></li>
                         <div className="notification-area"> <li className="nav-item"><Link className="nav-link" to="/About"><FiBell /></Link></li></div>
                         <div className="user-profile-dropdown">
                             <NavDropdown title=<AiOutlineBars /> id="collasible-nav-dropdown">
@@ -53,11 +56,8 @@ const NavBar = (props) => {
                                 <NavDropdown.Item onClick={handleRedirect} >logout</NavDropdown.Item>
                             </NavDropdown></div>
                     </ul>
-
                 </div>
-
             </nav>
-
         </div>
     );
 }

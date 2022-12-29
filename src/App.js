@@ -2,8 +2,8 @@
 import {  Routes, Route } from 'react-router-dom';
 import About from './components/About/About';
 import LoginForm from './components/Login/LoginForm';
-import Notes from './components/notes/addNotes/AddNotes';
-import NotesList from './components/notes/notesList/NotesList';
+import Notes from './components/Notes/addNotes/AddNotes';
+import NotesList from './components/Notes/notesList/NotesList';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -14,7 +14,7 @@ import GetData from './components/GetData/GetData';
 import GetPost from './components/GetData/GetPost';
 import Signup from './components/Signup/SignupPage';
 import ToggleMode from './components/ToggleComponent/Toggle';
-import UpdateNotes from './components/notes/UpdateNotes';
+import UpdateNotes from './components/Notes/UpdateNotes';
 import UpdateUser from './components/UpdateUser/UpdateUser';
 import ProfilePage from './components/UserProfile/ProfilePage';
 import HomePage from './components/Home/Home';
@@ -22,10 +22,12 @@ import UpdateProfile from './components/UpdateUser/UpdateProfile';
 import UploadImg from './components/UpdateUser/UploadImg';
 import SideBar from './components/NavBar/SideBar';
 import Bar from './components/NavBar/Bar';
+import Sidebar from './components/NavBar/Sidebar1';
 
 function App() {
   return (
     <>
+   <Sidebar/>
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="/home" element={<HomePage/>}/>
@@ -41,7 +43,7 @@ function App() {
         <Route path='/user/update-user' element={<UpdateUser/>}/>
         <Route path='/user/update-profile' element={<UpdateProfile/>}/>
         <Route path='/upload-image' element={<UploadImg/>}/>
-        <Route path='/sidebar' element={<Bar/>}/>
+       
         <Route path='/notes/update-note' element={<UpdateNotes/>}/>
         <Route path='/notes-list' element={<NotesList queryString=""/>}></Route>
       </Routes>
