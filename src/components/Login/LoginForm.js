@@ -37,7 +37,7 @@ const Login = () => {
             <div className='form'>
                 <div className='input-group'>
                     <label htmlFor='Email'>Email </label>
-                    <input type="Email" name="Email" placeholder="nome@email.com.br" onChange={(e) => inputHandler(e.target)} />
+                    <input  type="Email" name="Email" placeholder="nome@email.com.br" onChange={(e) => inputHandler(e.target)} />
                     {error.Email && <div style={{ color: "red" }}>{error.Email}</div>}
                 </div>
                 <div className='input-group'>

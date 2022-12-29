@@ -3,13 +3,14 @@ import { AiOutlinePlusSquare, AiOutlineGithub } from "react-icons/ai";
 import { ImSphere } from "react-icons/im";
 import { TiSocialTwitter, TiSocialFacebook, TiSocialInstagram } from "react-icons/ti";
 import { useNavigate } from 'react-router';
-
+import SaveSpinner from '../UserProfile/Spinner';
 
 export default function UpdateProfile() {
     const navigate=useNavigate();
     const [person, setPerson] = useState({ id: "", FirstName: "Prem", LastName: "Parmar", Email: "premparmar@gmail.com", password: "Prem@123", Age: "17", Phone: "8798763456", Gender: "male ", Pin: "12345", Address: "Ahmdabad", Image: "" });
     const [bio, setBio] = useState({ Role: "Full Stack Developer", BioData: "Bay Area, San Francisco, CA", Website: "https://mdbootst", Github: "mdbootstrap", Instagram: "@mdbootstrap", Twitter: "mdbootstrap", Facebook: "mdbootstrap" });
-
+    const [loading,setLoading]=useState(false);
+    
     const handleInputChange = (e) => {
         const { name, value } = e
         setPerson({ ...person, [name]: value })
@@ -23,9 +24,17 @@ export default function UpdateProfile() {
         setBio({ ...bio, [name]: value })
 
     }
-    console.log(person);
 
 
+    const handleSave=()=>{
+        setLoading(true)
+          navigate("/user-profile")
+          setLoading(false);
+        //   loading ? <SaveSpinner /> : ''
+         
+      
+       
+      }
     return (
         <div>
             <div style={{ paddingTop: "3rem; padding-bottom: 3rem" }}>
@@ -205,7 +214,7 @@ export default function UpdateProfile() {
                                 </div>
                             </div>
                         </div>
-                        <button style={{ float: "right", borderRadius: "5px", border: "none", cursor: "pointer", fontFamily: "&quot;Open Sans&quot;, sansSerif", backgroundColor: "white", color: "black", marginTop: "30px" }}>   update</button>
+                        <button style={{ float: "right", borderRadius: "5px", border: "none", cursor: "pointer", fontFamily: "&quot;Open Sans&quot;, sansSerif", backgroundColor: "white", color: "black", marginTop: "30px" }} onClick={handleSave} >   save</button>
                         <button style={{ borderRadius: "5px", border: "none", cursor: "pointer", fontFamily: "&quot;Open Sans&quot;, sansSerif", backgroundColor: "black", color: "white", marginTop: "30px" }} onClick={cancelNavigate}> back</button>
                     </div>
                 </section>

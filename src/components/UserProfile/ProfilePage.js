@@ -31,17 +31,12 @@ export default function ProfilePage() {
   const navigate=useNavigate();
   let user = localStorage.getItem("user");
   const [loading,setLoading]=useState(false);
+
   const handleBackRedirect=()=>{
     navigate("/notes-list")
   }
 const handleSave=()=>{
-  // setLoading(true)
-
     navigate("/user/update-profile")
-    // setLoading(false)
-    // {loading ? <SaveSpinner /> : ''}
-
- 
 }
   // console.log(user);
   return (
@@ -226,7 +221,7 @@ const handleSave=()=>{
             fontFamily: " Open Sans, sansSerif",
             backgroundColor: "white",
             color: "black",  marginTop: "30px"
-          }} onClick={handleSave}  >   update</button>
+          }} onClick={handleSave}  > update</button>
           <button style={{
             borderRadius: "5px",
             border: "none",
